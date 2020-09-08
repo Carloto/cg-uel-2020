@@ -5,13 +5,13 @@ from matplotlib import pyplot as plt
 
 def apply_mask(img, m):
     """Aplica uma máscara"""
-    masc_img = img.copy()
+    mask_img = img.copy()
     for row in range(img.shape[0] - 2):
         for column in range(img.shape[1] - 2):
             for channel in range(3):
-                masc_img[row+1, column+1,
+                mask_img[row+1, column+1,
                          channel] = m(img, row+1, column+1, channel)
-    return masc_img
+    return mask_img
 
 
 def horizontal_sobel(img, row, column, channel):
